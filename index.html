@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Testing Assessment</title>
+        
+        <link href='http://fonts.googleapis.com/css?family=Slabo+27px|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        
+        <style>
+            html, body {
+                margin:0; 
+                padding:0;
+                font-family:'Slabo 27px', serif;
+            }
+            
+            h1 {
+                font-weight:lighter;
+                color:gray;
+                text-align:center;
+                margin-top:50px;
+            }
+            
+            .part {
+                margin:0 auto;
+                text-align:justify;
+                min-height:300px;
+                overflow:hidden;
+            }
+            
+            #part1.part {
+                width:15%;
+            }
+            
+            #part2.part {
+                width:30%;
+            }
+            
+            #part3.part {
+                width:45%;
+            }
+            
+            #part4.part {
+                width:60%;
+            }
+            
+            #part5.part {
+                width:75%;
+            }
+            
+            #part6.part {
+                width:90%;
+            }
+            
+            button {
+                color:white;
+                padding:10px;
+                border-radius:2px;
+                -webkit-border-radius:2px;
+                margin:0 auto;
+                width:125px;
+                display:block;
+                margin-top:25px;
+                cursor:pointer;
+                outline:none;
+                border:none;
+                box-shadow:0px 2px 4px rgba(0,0,0,0.25);
+                background:#3498DB;
+            }
+            
+            button:hover {
+                background:#59ABE3;
+            }
+            
+            button.normal {
+                background:#26A65B;
+            }
+            
+            button.normal:hover {
+                background:#3FC380;
+            }
+            
+            button.stop {
+                background:#C0392B;
+            }
+            
+            button.stop:hover { 
+                background:#D64541;
+            }
+        
+            #overlay { 
+                background:rgba(0,0,0,0.75);
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+            }
+            
+            .box {
+                width:600px;
+                background:white;
+                height:510px;
+                display:block;
+                overflow:hidden;
+                z-index:100;
+                position:absolute;
+                top:10%;
+                left:32%;
+                box-shadow:0px 2px 8px rgba(0,0,0,0.25);
+                border-radius:5px;
+                -webkit-border-radius:5px;
+            }
+            
+            .box h1 {
+                color:black; 
+            }
+            
+            .page {
+                padding:10px;
+                width:75%;
+                margin:0 auto; 
+                text-align:justify;
+                height:75%;
+            }
+            
+            input[type="text"] {
+                border-radius:5px;
+                font-size:1em;
+                border:1px solid lightgray;
+                padding:6px;
+                font-family:'Open Sans', sans-serif;
+                font-weight:lighter;
+                width:100%;
+                margin-bottom:10px;
+                outline:none;
+            }
+            
+            .box form {
+                display:block;
+                margin:0 auto;
+                width:75%;
+                position:relative;
+            }
+            
+            #message textarea{
+                resize:none;
+                width:102%;
+                height:60%;
+                overflow:auto;
+                border:1px solid lightgray;
+                font-family:'Open Sans', sans-serif;
+                outline:none;
+                
+            }
+            
+            .box .error {
+                color:red; 
+                font-size:0.75em;
+                text-align:center;
+                margin-top:15px;
+                width:100%;
+                display:block; 
+            }
+            
+            .question {
+                margin-bottom:25px;
+            }
+            
+            label, input[type=radio] {
+                cursor:pointer;
+            }
+            
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <div id="overlay"></div>
+        
+        <!-- BEGIN MESSAGEBOX -->
+        
+        <div id="message" class="box">
+            <div id="page1" class="page">
+                <h1>Welcome</h1>
+                Hello, and welcome to the User Reading Assessment testing station. 
+                Once this window closes, you will be faced with a short passage and a 
+                "Start Reading" button. Click it and read the passage. Try to read the text
+                as quickly and effectively as possible. Once done, click "Stop Reading".
+                You will then be presented with three questions regarding the passage, which
+                you are to answer before pressing "Continue". This process will then occur five more times,
+                all with different passages, and different following questions. .<b>Please refrain
+                from using a search engine like Google, Yahoo, or Bing in answering the questions.</b> 
+                In addition, with each passage, the line width will vary
+                When you are done, you will need to answer a short questionaire. All your answers will only be submitted
+                once you click "Finish". Got it? Good.
+                <br/><br/>
+                Press "Continue" to tell us a little bit about yourself before starting.
+            </div>
+            
+            <div id="page2" class="page">
+                <h1>User Information</h1>
+                <form id="ui_form">
+                    <input type="text" id="name"  name="fname" placeholder="Full Name (First Last)" autocomplete="off" /><br/>
+                    <input type="text" id="eaddr" name="eaddr" placeholder="Email Address" autocomplete="off" /></br>
+                    <div id="sex" style="margin-left:2px;">
+                        What is your gender? <br/>
+                        <input type="radio" value="male" name="sex" autocomplete="off" id="male" /><label for="male">Male</label><br/>
+                        <input type="radio" value="female" name="sex" autocomplete="off" id="female" /><label for="female">Female</label><br/>
+                    </div>
+                    <div id="age"  style="margin-top:10px;margin-left:2px;">
+                        About how old are you? 
+                        <select name="age">
+                            <option>&lt; 20</option>
+                            <option>20-30</option>
+                            <option>30-40</option>
+                            <option>40-50</option>
+                            <option>50-60</option>
+                            <option>60-70</option>
+                            <option>&gt; 70</option>
+                        </select>
+                    </div>
+                    <div id="age"  style="margin-top:10px;margin-left:2px;">
+                        Where are you from?
+                        <select name="loc">
+                            <option>Alabama</option>
+                            <option>Alaska</option> 
+                            <option>Arizona</option> 
+                            <option>Arkansas</option> 
+                            <option>California</option> 
+                            <option>Colorado</option> 
+                            <option>Connecticut</option> 
+                            <option>Delaware</option> 
+                            <option>Florida</option> 
+                            <option>Georgia</option> 
+                            <option>Hawaii</option> 
+                            <option>Idaho</option> 
+                            <option>Illinois</option> 
+                            <option>Indiana</option> 
+                            <option>Iowa</option> 
+                            <option>Kansas</option> 
+                            <option>Kentucky</option> 
+                            <option>Louisiana</option> 
+                            <option>Maine</option> 
+                            <option>Maryland</option> 
+                            <option>Massachusetts</option> 
+                            <option>Michigan</option> 
+                            <option>Minnesota</option> 
+                            <option>Mississippi</option> 
+                            <option>Missouri</option> 
+                            <option>Montana</option> 
+                            <option>Nebraska</option> 
+                            <option>Nevada</option> 
+                            <option>New Hampshire</option> 
+                            <option>New Jersey</option> 
+                            <option>New Mexico</option> 
+                            <option>New York</option> 
+                            <option>North Carolina</option> 
+                            <option>North Dakota</option> 
+                            <option>Ohio</option> 
+                            <option>Oklahoma</option> 
+                            <option>Oregon</option> 
+                            <option>Pennsylvania</option> 
+                            <option>Rhode Island</option> 
+                            <option>South Carolina</option> 
+                            <option>South Dakota</option> 
+                            <option>Tennessee</option> 
+                            <option>Texas</option> 
+                            <option>Utah</option> 
+                            <option>Vermont</option> 
+                            <option>Virginia</option> 
+                            <option>Washington</option> 
+                            <option>West Virginia</option> 
+                            <option>Wisconsin</option> 
+                            <option>Wyoming</option>
+                        </select>
+                    </div>
+                    <div style="font-size:0.85em; margin-top:60px; text-align:center">
+                        <input type="checkbox" id="agree" autocomplete="off" /> I agree to be contacted via email if necessary
+                    </div>
+                </form>
+            </div>
+            
+            <div id="page3" class="page">
+                <h1>Digital Consent Form</h1>
+                <textarea readonly>
+CONSENT FORM
+
+WPI CS3041 Project 2 Interface Experiment
+
+Thank you for considering participating in this study.  Research is
+being conducted to study the quality of different layouts for displays
+of text.  This research is being conducted by Tyler J. Nickerson from WPI.
+
+Over the next few minutes you will be asked to read several pieces of
+text.  Following each you will be asked some questions about what you
+read, and your answers noted.  
+
+There are no known risks associated with participating in this study.
+
+Please remember that your participation in this research is voluntary,
+confidential and anonymous.  Only the researcher will have access to
+the data collected.  You may withdraw your consent to participate at
+any time without any penalty.  This is a completely voluntary research
+project so you may stop at anytime.  
+
+By signing below you acknowledge that you may not gain anything personally
+by participating in the experiment.
+
+If you wish to obtain further information about this study you may
+obtain a more detailed explanation of its goals after your
+participation has finished.
+
+YOUR SIGNATURE BELOW INDICATES THAT YOU HAVE READ THE INFORMATION
+ABOVE AND YOU ARE CONSENTING TO PARTICIPATE IN THE EXPERIMENT
+DESCRIBED ABOVE.
+                </textarea>
+                
+                <input autocomplete="off"  type="text" id="sig" placeholder="Digital Signature (First M. Name)" autocomplete="off" />
+            </div>
+            <button id="continue">Continue</button>
+            <span class="error">Please make sure all fields are valid before continuing</span>
+        </div>
+    
+        <!-- END MESSAGEBOX -->
+        
+        <div id="part1" class="part">
+            <h1>1 of 6:<br/>Mourning Doves</h1>
+            The mourning dove is a member of the dove family. 
+            It has five subspecies. The number of mourning doves is about 475 million. 
+            They are found in North America. 
+            Mourning doves are light grey and brown, and males and females look similar.
+            The species mostly have one partner at a time. Both parents incubate and care for their chicks. 
+            Adult mourning doves usually eat only seeds. The young are fed crop milk by the parents.
+            The mourning dove is hunted both for sport and meat. Up to 70 million birds are shot in the 
+            United States every year. Its mournful woo-oo-oo-oo call gives the bird its name. 
+            The bird is a strong flier, and can fly at up to 55 mph.
+        </div>
+        
+        <div id="question1" class="qbox box">
+            <h1>Passage #1 Questions</h1>
+            <form>
+                <div class="question">
+                    1. Where are mourning doves usually found?<br/>
+                    <input type="radio" name="q1" id="n_america" value="A" autocomplete="off" /> <label for="n_america">North America</label><br/>
+                    <input type="radio" name="q1" id="s_america" value="B" autocomplete="off" /> <label for="s_america">South America</label><br/>
+                    <input type="radio" name="q1" id="europe" value="C" autocomplete="off" /> <label for="europe">Europe</label><br/>
+                </div>
+                
+                <div class="question">
+                    2. What does the diet of the adult mourning dove usually consist of?<br/>
+                    <input type="radio" name="q2" id="insects" value="A" autocomplete="off" /> <label for="insects">Insects</label><br/>
+                    <input type="radio" name="q2" id="berries" value="B" autocomplete="off" /> <label for="berries">Berries</label><br/>
+                    <input type="radio" name="q2" id="seeds" value="C" autocomplete="off" /> <label for="seeds">Seeds</label><br/>
+                </div>
+                
+                <div class="question">
+                    3. Roughly how many mourning doves are killed each year?<br/>
+                    <input type="radio" name="q3" id="70m" value="A" autocomplete="off" /> <label for="70m">70 million</label><br/>
+                    <input type="radio" name="q3" id="700m" value="B" autocomplete="off" /> <label for="700m">700 million</label><br/>
+                    <input type="radio" name="q3" id="7m" value="B" autocomplete="off" /> <label for="7m">7 million</label><br/>
+                </div>
+                <input type="hidden" name="time" id="time" autocomplete="off" />
+            </form>
+            
+            <button>Continue</button>
+            <span class="error">Please make sure all fields are valid before continuing</span>
+        </div>
+    
+        <div id="part2" class="part">
+            <h1>2 of 6:<br/>Geisha</h1>
+            Geisha, also known as geigi, are traditional female Japanese entertainers. 
+            They are skilled at different Japanese arts, like playing classical Japanese music, dancing and 
+            poetry. Some people believe that geisha are prostitutes, this however is false. 
+            The term "geisha" is made of two Japanese words, 芸 (gei) meaning "art" and 者 (sha) meaning 
+            "person who does" or "to be employed in". 
+            The most literal translation of geisha to English is "artist". 
+            Geisha are very respected and it is hard to become one.
+            There are also geisha in other cities, but they are different. 
+            In Tokyo, becoming a full geisha takes from six months to a year. 
+            The Tokyo geisha apprentice is called "han'gyoku" (半玉) "half-jewel", or "o-shaku" (御酌), 
+            "one who serves (alcohol)". Tokyo geisha are normally older than Kyoto geiko.
+        </div>
+        
+        <div id="question2" class="qbox box">
+            <h1>Passage #2 Questions</h1>
+            <form>
+                <div class="question">
+                    1. What are geisha?<br/>
+                    <input type="radio" name="q1" id="concubines" value="A" autocomplete="off" /> <label for="concubines">Japanese concubines</label><br/>
+                    <input type="radio" name="q1" id="chambermaids" value="B" autocomplete="off" /> <label for="chambermaids">Japanese chambermaids</label><br/>
+                    <input type="radio" name="q1" id="entertainers" value="C" autocomplete="off" /> <label for="entertainers">Japanese entertainers</label><br/>
+                </div>
+                
+                <div class="question">
+                    2. How long does it take to become a geisha?<br/>
+                    <input type="radio" name="q2" id="six2year" value="A" autocomplete="off" /> <label for="six2year">Six months to a year</label><br/>
+                    <input type="radio" name="q2" id="six2eightmonths" value="B" autocomplete="off" /> <label for="six2eightmonths">Six to eight months</label><br/>
+                    <input type="radio" name="q2" id="one2twoyears" value="C" autocomplete="off" /> <label for="one2twoyears">One to two years</label><br/>
+                </div>
+                
+                <div class="question">
+                    3. What activity do geisha <b>not</b> do?<br/>
+                    <input type="radio" name="q3" id="music" value="A" autocomplete="off" /> <label for="music">Play music</label><br/>
+                    <input type="radio" name="q3" id="tricks" value="B" autocomplete="off" /> <label for="tricks">Magic tricks</label><br/>
+                    <input type="radio" name="q3" id="dance" value="C" autocomplete="off" /> <label for="dance">Dance</label><br/>
+                </div>
+                <input type="hidden" name="time" id="time" autocomplete="off" />
+            </form>
+            
+            <button>Continue</button>
+            <span class="error">Please make sure all fields are valid before continuing</span>
+        </div>
+    
+        <div id="part3" class="part">
+            <h1>3 of 6:<br/>Violins</h1>
+            The violin is a string instrument which is played with a bow. 
+            It has four strings. The strings are usually tuned to the notes G, D, A, and E. 
+            It is held between the left collar bone (near the shoulder) and the chin. 
+            Different notes are made by fingering with the left hand while bowing with the right. 
+            It has no frets or other markers. Players have to learn the exact place to put the fingers 
+            of the left hand and memorise them. Students learning to play a violin may put dots 
+            or stickers on the fingerboard to help them learn how to play.
+            The violin is the smallest and highest pitched string instrument. 
+            A person who plays the violin is called a violinist. A person who makes or repairs violins is 
+            called a luthier.
+        </div>
+        
+        <div id="question3" class="qbox box">
+            <h1>Passage #3 Questions</h1>
+            <form>
+                <div class="question">
+                    1. Which is <b>not</b> true about the violin?<br/>
+                    <input type="radio" name="q1" value="A" autocomplete="off" id="first" /> <label for="first">It is the first stringed instrument produced</label><br/>
+                    <input type="radio" name="q1" value="B" autocomplete="off" id="small" /> <label for="small">It is the smallest instrument</label><br/>
+                    <input type="radio" name="q1" value="C" autocomplete="off" id="pitch"  /> <label for="pitch">It is the highest pitched instrument</label><br/>
+                </div>
+                
+                <div class="question">
+                    2. What do you call someone who repairs violins?<br/>
+                    <input type="radio" name="q2" value="A" autocomplete="off" id="luthien" />  <label for="luthien">Luthien</label><br/>
+                    <input type="radio" name="q2" value="B" autocomplete="off" id="horo" /> <label for="horo">Horologist</label><br/>
+                    <input type="radio" name="q2" value="C" autocomplete="off" id="luthier" /> <label for="luthier">Luthier</label><br/>
+                </div>
+                
+                <div class="question">
+                    3. What is the usual tuning of a violin?<br/>
+                    <input type="radio" name="q3" value="A" autocomplete="off" id="gdae" /> <label for="gdae">GDAE</label><br/>
+                    <input type="radio" name="q3" value="B" autocomplete="off" id="daeg" /> <label for="daeg">DAEG</label><br/>
+                    <input type="radio" name="q3" value="C" autocomplete="off" id="agde" /> <label for="agde">AGDE</label><br/>
+                </div>
+                <input type="hidden" name="time" id="time" autocomplete="off" />
+            </form>
+            
+            <button>Continue</button>
+            <span class="error">Please make sure all fields are valid before continuing</span>
+        </div>
+    
+        <div id="part4" class="part">
+            <h1>4 of 6:<br/>Proxy Servers</h1>
+            In computer networks, a proxy server is a server (computer) which clients (people or computers) 
+            use to access other computers. A proxy server that passes information to its clients 
+            without changing it is usually called a gateway or sometimes tunneling proxy.
+            Proxy servers get their name because they act like a proxy (a stand-in) and act on behalf of a 
+            Client's computer. A client that connects to the proxy server requests some service, 
+            such as a file, connection, web page, or other resource, that is available on a different server. 
+            The proxy server then goes to the other server and requests what the client wants for them.
+        </div>
+    
+        <div id="question4" class="qbox box">
+            <h1>Passage #4 Questions</h1>
+            <form>
+                <div class="question">
+                    1. What is another word for 'proxy'?<br/>
+                    <input type="radio" name="q1" value="A" autocomplete="off" id="host" /> <label for="host">Host</label><br/>
+                    <input type="radio" name="q1" value="B" autocomplete="off" id="gateway"/> <label for="gateway">Gateway</label><br/>
+                    <input type="radio" name="q1" value="C" autocomplete="off" id="standin"/> <label for="standin">Stand-in</label><br/>
+                </div>
+                
+                <div class="question">
+                    2. What is a gateway?<br/>
+                    <input type="radio" name="q2" value="A" autocomplete="off" id="do_not" />  <label for="do_not">A proxy server that does not modify information</label><br/>
+                    <input type="radio" name="q2" value="B" autocomplete="off" id="do" /> <label for="do">A proxy server that modifies information</label><br/>
+                    <input type="radio" name="q2" value="C" autocomplete="off" id="router" /> <label for="router">A kind of router</label><br/>
+                </div>
+                
+                <div class="question">
+                    3. What is a gateway also known as?<br/>
+                    <input type="radio" name="q3" value="A" autocomplete="off" id="reserved" /> <label for="reserved">Reserved Proxy</label><br/>
+                    <input type="radio" name="q3" value="B" autocomplete="off" id="tunneling" /> <label for="tunneling">Tunneling Proxy</label><br/>
+                    <input type="radio" name="q3" value="C" autocomplete="off" id="private" /> <label for="private">Private Proxy</label><br/>
+                </div>
+                <input type="hidden" name="time" id="time" autocomplete="off" />
+            </form>
+            
+            <button>Continue</button>
+            <span class="error">Please make sure all fields are valid before continuing</span>
+        </div>
+        
+        <div id="part5" class="part">
+            <h1>5 of 6:<br/>Oklahoma</h1>
+            Oklahoma is a state that is in the southern part of the Central United States. 
+            It had a population of about 3,751,351 people in 2010. The state has a land area of about 
+            68,667 sq mi (177,847 km2). Oklahoma is the 28th largest state by population and the 
+            20th largest state by area. The name of the state comes from the Choctaw words okla and humma.
+            It means "Red People". It is also known by its nickname, The Sooner State. 
+            The state was formed from Indian Territory on November 16, 1907. It was the 46th state to 
+            become part of the United States. The people who live in the state are known as Oklahomans 
+            or Okies. The state's capital and largest city is Oklahoma City.
+        </div>
+    
+        <div id="question5" class="qbox box">
+            <h1>Passage #5 Questions</h1>
+            <form>
+                <div class="question">
+                    1. What does the Choctaw translation of Oklahoma mean?<br/>
+                    <input type="radio" name="q1" value="A" autocomplete="off" id="dirt" /> <label for="dirt">Red Dirt</label><br/>
+                    <input type="radio" name="q1" value="B" autocomplete="off" id="land" /> <label for="land">Red Land</label><br/>
+                    <input type="radio" name="q1" value="C" autocomplete="off" id="people" /> <label for="people">Red People</label><br/>
+                </div>
+                
+                <div class="question">
+                    2. What is the nickname os Oklahoma?<br/>
+                    <input type="radio" name="q2" value="A" autocomplete="off" id="sooner" />  <label for="sooner">The Sooner State</label><br/>
+                    <input type="radio" name="q2" value="B" autocomplete="off" id="centennial" /> <label for="centennial">The Centennial State</label><br/>
+                    <input type="radio" name="q2" value="C" autocomplete="off" id="gopher" /> <label for="gopher">The Gopher State</label><br/>
+                </div>
+                
+                <div class="question">
+                    3. When was Oklahoma formed?<br/>
+                    <input type="radio" name="q3" value="A" autocomplete="off" id="1909" /> <label for="1909">1909</label><br/>
+                    <input type="radio" name="q3" value="B" autocomplete="off" id="1905" /> <label for="1905">1905</label><br/>
+                    <input type="radio" name="q3" value="C" autocomplete="off" id="1907" /> <label for="1907">1907</label><br/>
+                </div>
+                <input type="hidden" name="time" id="time" autocomplete="off" />
+            </form>
+            
+            <button>Continue</button>
+            <span class="error">Please make sure all fields are valid before continuing</span>
+        </div>
+        
+        <div id="part6" class="part">
+            <h1>6 of 6:<br/>Mali</h1>
+            Mali is a landlocked country (a country entirely enclosed by land) in West Africa. 
+            Mali borders Algeria to the north, Niger on the east, Burkina Faso and the Côte d'Ivoire on the south,
+            Guinea on the south-west, and Senegal and Mauritania on the west. 
+            Physical features of Mali include the Sahara desert in the north, with the Niger River and 
+            Sénégal River in the southern part of the country. As of a July 2011 estimate, 
+            Mali has a population of approximately 14,000,000 people. Mali has a total area of 1,220,190 
+            square kilometres (471,120 sq mi). Most of the people live in the southern part of the country, 
+            with Mali's capital and most populated city being Bamako.
+        </div>
+    
+        
+        <div id="question6" class="qbox box">
+            <h1>Passage #6 Questions</h1>
+            <form>
+                 <div class="question">
+                    1. Where is Niger in proximity to Mali?<br/>
+                    <input type="radio" name="q1" value="A" autocomplete="off" id="east" /> <label for="east">East</label><br/>
+                    <input type="radio" name="q1" value="B" autocomplete="off" id="west" /><label for="west"> West</label><br/>
+                    <input type="radio" name="q1" value="C" autocomplete="off" id="north" /> <label for="north">North</label><br/>
+                </div>
+                
+                <div class="question">
+                    2. What is the approximate population of Mali?<br/>
+                    <input type="radio" name="q2" value="A" autocomplete="off" id="13m" />  <label for="13m">13 million</label><br/>
+                    <input type="radio" name="q2" value="B" autocomplete="off" id="14m" /> <label for="14m">14 million</label><br/>
+                    <input type="radio" name="q2" value="C" autocomplete="off" id="15m" /> <label for="15m">15 million</label><br/>
+                </div>
+                
+                <div class="question">
+                    3. What is the capital of Mali?<br/>
+                    <input type="radio" name="q3" value="A" autocomplete="off" id="ni" /> <label for="ni">Niamey</label><br/>
+                    <input type="radio" name="q3" value="B" autocomplete="off" id="ou" /> <label for="ou">Ouagadougou</label><br/>
+                    <input type="radio" name="q3" value="C" autocomplete="off" id="ba" /> <label for="ba">Bamako</label><br/>
+                </div>
+                <input type="hidden" name="time" id="time" autocomplete="off" />
+            </form>
+            
+            <button>Continue</button>
+            <span class="error">Please make sure all fields are valid before continuing</span>
+        </div>
+    
+        <div id="final" class="qbox box">
+            <div class="page">
+                <h1>Congratulations!</h1>
+                Thanks for taking the time to complete this assessment! Please just fill out
+                some of the post-assessment questions below, then click "Finish" to submit your results!
+                <br/><br/>
+                <form>
+                    <div class="question">
+                        1. Which text had the layout that was the most comfortable to read?<br/>
+                        <input type="radio" name="q1" value="A" autocomplete="off" id="1a"/> <label for="1a">#1. Mourning Doves</label>
+                        <input type="radio" name="q1" value="B" autocomplete="off" id="2a"/> <label for="2a">#2. Geisha</label><br/>
+                        <input type="radio" name="q1" value="C" autocomplete="off" id="3a"/> <label for="3a">#3. Violins</label>
+                        <input type="radio" name="q1" value="D" autocomplete="off" id="4a"/> <label for="4a">#4. Proxy Servers</label><br/>
+                        <input type="radio" name="q1" value="E" autocomplete="off" id="5a"/> <label for="5a">#5. Oklahoma</label>
+                        <input type="radio" name="q1" value="F" autocomplete="off" id="6a"/> <label for="6a">#6. Mali</label><br/>
+                    </div>
+
+                    <div class="question">
+                        2. Which passage did you feel you were able to read the fastest?<br/>
+                        <input type="radio" name="q2" value="A" autocomplete="off" id="1b"/> <label for="1b">#1. Mourning Doves</label>
+                        <input type="radio" name="q2" value="B" autocomplete="off" id="2b"/> <label for="2b">#2. Geisha</label><br/>
+                        <input type="radio" name="q2" value="C" autocomplete="off" id="3b"/> <label for="3b">#3. Violins</label>
+                        <input type="radio" name="q2" value="D" autocomplete="off" id="4b"/> <label for="4b">#4. Proxy Servers</label><br/>
+                        <input type="radio" name="q2" value="E" autocomplete="off" id="5b"/> <label for="5b">#5. Oklahoma</label>
+                        <input type="radio" name="q2" value="F" autocomplete="off" id="6b"/> <label for="6b">#6. Mali</label><br/>
+                    </div>
+                </form>
+            </div>
+            <br/>
+            <button id="finish-button" class="normal">Finish</button>
+            <span class="error">Please make sure all fields are valid before continuing</span>
+        </div>
+        
+        <div id="thanks" class="box">
+            <div class="page">
+                <div style="padding-top:25%;">
+                    <h1>Thanks for participating!</h1>
+                    <div style="text-align:center">Your feedback has been much appreciated.</div>
+                    <button id="close-button" style="margin-top:50px;" onclick="history.back();">End Session</button>
+                </div>
+            </div>
+        </div>
+        <button id="read-button" class="normal">Start Reading</button>
+        
+        <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+        <script src="node_modules/validator/validator.min.js" type="text/javascript"></script>
+        <script src="script.js" type="text/javascript"></script>    
+    
+    </body>
+</html>
